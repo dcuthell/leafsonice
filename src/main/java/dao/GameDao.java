@@ -11,7 +11,7 @@ public interface GameDao {
     void add (Game game);
     //read
     List<Game> getAll();
-//    List<Player> getAllPlayersForAGame(int gameId);
+    List<Player> getAllPlayersForAGame(int gameId);
 //    Game findById(int gameId);
 //    //update
 //    void update(int id, String gameDate, String opposingTeam, String location, Boolean played, Integer leafsScore, Integer opponentScore);
