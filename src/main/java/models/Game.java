@@ -1,24 +1,36 @@
 package models;
 
 public class Game {
-    String date;
-    String opposingTeam;
-    String location;
-    Boolean played;
-    Integer leafsScore;
-    Integer opponentScore;
-    Integer id;
+    private String gameDate;
+    private String opposingTeam;
+    private String location;
+    private Boolean played;
+    private Integer leafsScore;
+    private Integer opponentScore;
+    private Integer id;
 
-    public Game(){
-
+    public Game(String gameDate, String opposingTeam, String location, Integer leafsScore, Integer opponentScore){
+        this.gameDate = gameDate;
+        this.opposingTeam = opposingTeam;
+        this.location = location;
+        this.played = true;
+        this.leafsScore = leafsScore;
+        this.opponentScore = opponentScore;
     }
 
-    public String getDate() {
-        return date;
+    public Game(String gameDate, String opposingTeam, String location){
+        this.gameDate = gameDate;
+        this.opposingTeam = opposingTeam;
+        this.location = location;
+        this.played = false;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public String getGameDate() {
+        return gameDate;
+    }
+
+    public void setGameDate(String gameDate) {
+        this.gameDate = gameDate;
     }
 
     public String getOpposingTeam() {
@@ -69,31 +81,4 @@ public class Game {
         this.id = id;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Game game = (Game) o;
-
-        if (!date.equals(game.date)) return false;
-        if (!opposingTeam.equals(game.opposingTeam)) return false;
-        if (!location.equals(game.location)) return false;
-        if (!played.equals(game.played)) return false;
-        if (!leafsScore.equals(game.leafsScore)) return false;
-        if (!opponentScore.equals(game.opponentScore)) return false;
-        return id != null ? id.equals(game.id) : game.id == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = date.hashCode();
-        result = 31 * result + opposingTeam.hashCode();
-        result = 31 * result + location.hashCode();
-        result = 31 * result + played.hashCode();
-        result = 31 * result + leafsScore.hashCode();
-        result = 31 * result + opponentScore.hashCode();
-        result = 31 * result + (id != null ? id.hashCode() : 0);
-        return result;
-    }
 }
