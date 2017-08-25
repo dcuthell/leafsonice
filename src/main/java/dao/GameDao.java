@@ -17,5 +17,6 @@ public interface GameDao {
     void update(int id, String gameDate, String opposingTeam, String location, Boolean played, Integer leafsScore, Integer opponentScore);
     //delete
     void deleteById(int gameId);
-//    void deleteAll();
+    void deleteAll();
+
 }

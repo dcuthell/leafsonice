@@ -82,5 +82,16 @@ public class Sql2oGameDao implements GameDao {
         }
     }
 
-
+    public void deleteAll(){
+        String sql = "DELETE FROM games";
+        String deleteJoin = "DELETE from games_players";
+        try (Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .executeUpdate();
+            con.createQuery(deleteJoin)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
 }

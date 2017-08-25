@@ -80,6 +80,16 @@ public class Sql2oGameDaoTest {
         assertEquals(0, gameDao.getAll().size());
     }
 
+    @Test
+    public void deleteAll_removesAllGames() throws Exception {
+        Game testGame = createGame();
+        Game testGame1 = createAnotherGame();
+        gameDao.add(testGame);
+        gameDao.add(testGame1);
+        gameDao.deleteAll();
+        assertEquals(0, gameDao.getAll().size());
+    }
+
 
 
 
