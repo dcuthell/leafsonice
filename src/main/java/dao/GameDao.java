@@ -9,8 +9,8 @@ public interface GameDao {
 
     //create
     void add (Game game);
-//    //read
-//    List<Game> getAll();
+    //read
+    List<Game> getAll();
 //    List<Player> getAllPlayersForAGame(int gameId);
 //    Game findById(int gameId);
 //    //update

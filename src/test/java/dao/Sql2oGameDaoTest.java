@@ -28,11 +28,20 @@ public class Sql2oGameDaoTest {
     }
 
     @Test
-    public void addAddsId() throws Exception {
+    public void add_addsId() throws Exception {
         Game testGame = createGame();
         Integer initialGameId = testGame.getId();
         gameDao.add(testGame);
         assertNotEquals(initialGameId, testGame.getId());
+    }
+
+    @Test
+    public void getAll_returnsAllGames() throws Exception {
+        Game testGame = createGame();
+        Game testGame1 = createAnotherGame();
+        gameDao.add(testGame);
+        gameDao.add(testGame1);
+        assertEquals(2, gameDao.getAll().size());
     }
 
     public Game createGame(){

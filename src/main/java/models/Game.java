@@ -81,4 +81,32 @@ public class Game {
         this.id = id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Game game = (Game) o;
+
+        if (!gameDate.equals(game.gameDate)) return false;
+        if (!opposingTeam.equals(game.opposingTeam)) return false;
+        if (!location.equals(game.location)) return false;
+        if (played != null ? !played.equals(game.played) : game.played != null) return false;
+        if (leafsScore != null ? !leafsScore.equals(game.leafsScore) : game.leafsScore != null) return false;
+        if (opponentScore != null ? !opponentScore.equals(game.opponentScore) : game.opponentScore != null)
+            return false;
+        return id != null ? id.equals(game.id) : game.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = gameDate.hashCode();
+        result = 31 * result + opposingTeam.hashCode();
+        result = 31 * result + location.hashCode();
+        result = 31 * result + (played != null ? played.hashCode() : 0);
+        result = 31 * result + (leafsScore != null ? leafsScore.hashCode() : 0);
+        result = 31 * result + (opponentScore != null ? opponentScore.hashCode() : 0);
+        result = 31 * result + (id != null ? id.hashCode() : 0);
+        return result;
+    }
 }

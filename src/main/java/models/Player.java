@@ -60,5 +60,29 @@ public class Player {
         this.id = id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Player player = (Player) o;
+
+        if (!firstName.equals(player.firstName)) return false;
+        if (!lastName.equals(player.lastName)) return false;
+        if (!playerNumber.equals(player.playerNumber)) return false;
+        if (!handed.equals(player.handed)) return false;
+        if (position != null ? !position.equals(player.position) : player.position != null) return false;
+        return id != null ? id.equals(player.id) : player.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = firstName.hashCode();
+        result = 31 * result + lastName.hashCode();
+        result = 31 * result + playerNumber.hashCode();
+        result = 31 * result + handed.hashCode();
+        result = 31 * result + (position != null ? position.hashCode() : 0);
+        result = 31 * result + (id != null ? id.hashCode() : 0);
+        return result;
+    }
 }
