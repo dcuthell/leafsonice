@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS players (
   firstName VARCHAR,
   lastName VARCHAR,
   playerNumber INT,
+  handed VARCHAR,
   position VARCHAR
 );
 
@@ -20,6 +21,6 @@ CREATE TABLE IF NOT EXISTS games (
 
 CREATE TABLE IF NOT EXISTS games_players (
   id int PRIMARY KEY auto_increment,
-  gameId VARCHAR,
-  playerId VARCHAR
+  gameId INT,
+  playerId INT
 );

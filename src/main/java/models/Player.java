@@ -8,8 +8,12 @@ public class Player {
     private String position;
     private Integer id;
 
-    public Player(){
-
+    public Player(String firstName, String lastName, Integer playerNumber, String handed){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.playerNumber = playerNumber;
+        this.handed = handed;
+        this.position = "Bench";
     }
 
     public String getFirstName() {
