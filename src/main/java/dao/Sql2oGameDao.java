@@ -50,7 +50,22 @@ public class Sql2oGameDao implements GameDao {
         }
     }
 
-
+    public void update(int id, String gameDate, String opposingTeam, String location, Boolean played, Integer leafsScore, Integer opponentScore){
+        String sql = "UPDATE games SET (gameDate, opposingTeam, location, played, leafSscore, opponentScore) = (:gameDate, :opposingTeam, :location, :played, :leafsScore, :opponentScore) WHERE id= :id";
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("gameDate", gameDate)
+                    .addParameter("opposingTeam", opposingTeam)
+                    .addParameter("location", location)
+                    .addParameter("played", played)
+                    .addParameter("leafsScore", leafsScore)
+                    .addParameter("opponentScore", opponentScore)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
 
 
 }

@@ -63,7 +63,14 @@ public class Sql2oGameDaoTest {
         assertEquals(testGame, gameDao.findById(testGame.getId()));
     }
 
-
+    @Test
+    public void update_changesCorrectly() throws Exception {
+        Game testGame = createGame();
+        gameDao.add(testGame);
+        String oldTeam = testGame.getOpposingTeam();
+        gameDao.update(testGame.getId(), "Test", "JETSJETSJETS", "Winnerpegs", false, 0, 0);
+        assertNotEquals(oldTeam, gameDao.findById(testGame.getId()).getOpposingTeam());
+    }
 
 
 
