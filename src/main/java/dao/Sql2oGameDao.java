@@ -67,5 +67,20 @@ public class Sql2oGameDao implements GameDao {
         }
     }
 
+    public void deleteById(int gameId){
+        String sql = "DELETE FROM games WHERE id = :id";
+        String deleteJoin = "DELETE from games_players WHERE gameId = :gameId";
+        try (Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("id", gameId)
+                    .executeUpdate();
+            con.createQuery(deleteJoin)
+                    .addParameter("gameId", gameId)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
+
 
 }

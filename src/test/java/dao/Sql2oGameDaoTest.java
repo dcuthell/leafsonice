@@ -72,6 +72,15 @@ public class Sql2oGameDaoTest {
         assertNotEquals(oldTeam, gameDao.findById(testGame.getId()).getOpposingTeam());
     }
 
+    @Test
+    public void deleteById_removesGame() throws Exception {
+        Game testGame = createGame();
+        gameDao.add(testGame);
+        gameDao.deleteById(testGame.getId());
+        assertEquals(0, gameDao.getAll().size());
+    }
+
+
 
 
     public Game createGame(){
