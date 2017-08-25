@@ -56,6 +56,17 @@ public class Sql2oGameDaoTest {
         assertNotEquals(0, gameDao.getAllPlayersForAGame(testGame.getId()).size());
     }
 
+    @Test
+    public void findById_returnsCorrectly() throws Exception {
+        Game testGame = createGame();
+        gameDao.add(testGame);
+        assertEquals(testGame, gameDao.findById(testGame.getId()));
+    }
+
+
+
+
+
     public Game createGame(){
         return new Game("PastDate", "Stupid Sens", "AC Center", 100, 0 );
     }

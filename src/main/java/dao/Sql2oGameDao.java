@@ -42,5 +42,15 @@ public class Sql2oGameDao implements GameDao {
         return null;
     }
 
+    public Game findById(int gameId){
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM games WHERE id= :id")
+                    .addParameter("id", gameId)
+                    .executeAndFetchFirst(Game.class);
+        }
+    }
+
+
+
 
 }
