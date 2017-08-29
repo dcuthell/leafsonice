@@ -12,11 +12,31 @@ _Leafs on Ice is a system designed to keep track of the players and games of the
 
 * _Run App.java_
 * _Direct browser to localhost:4567_
-* _Manage Teams_
+* _Get pumped for October_
 
 ## Screenshots from Postman
 
 ![alt text](https://raw.githubusercontent.com/dcuthell/leafsonice/master/screenshots/1.png)
+
+![alt text](https://raw.githubusercontent.com/dcuthell/leafsonice/master/screenshots/2.png)
+
+![alt text](https://raw.githubusercontent.com/dcuthell/leafsonice/master/screenshots/3.png)
+
+![alt text](https://raw.githubusercontent.com/dcuthell/leafsonice/master/screenshots/4.png)
+
+![alt text](https://raw.githubusercontent.com/dcuthell/leafsonice/master/screenshots/5.png)
+
+![alt text](https://raw.githubusercontent.com/dcuthell/leafsonice/master/screenshots/6.png)
+
+![alt text](https://raw.githubusercontent.com/dcuthell/leafsonice/master/screenshots/7.png)
+
+![alt text](https://raw.githubusercontent.com/dcuthell/leafsonice/master/screenshots/8.png)
+
+![alt text](https://raw.githubusercontent.com/dcuthell/leafsonice/master/screenshots/9.png)
+
+![alt text](https://raw.githubusercontent.com/dcuthell/leafsonice/master/screenshots/10.png)
+
+![alt text](https://raw.githubusercontent.com/dcuthell/leafsonice/master/screenshots/11.png)
 
 
 ## Known Bugs
