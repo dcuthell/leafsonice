@@ -53,8 +53,8 @@ _For technical support, additional information, or feedback, pray._
 * _Java_
 * _Spark_
 * _IntelliJ_
-* _PostgresSQL
-* _Postman
+* _PostgresSQL_
+* _Postman_
 
 ### License
 
