@@ -1,13 +1,16 @@
 import com.google.gson.Gson;
 import dao.Sql2oGameDao;
 import dao.Sql2oPlayerDao;
+import exceptions.ApiException;
 import models.Game;
 import models.Player;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static spark.Spark.*;
 
@@ -19,7 +22,7 @@ public class App {
         Connection conn;
         Gson gson = new Gson();
 
-        String connectionString = "jdbc:h2:~/leafs-on-ice.db;INIT=RUNSCRIPT from 'classpath:db/create.sql";
+        String connectionString = "jdbc:h2:~/leafsonice.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         gameDao = new Sql2oGameDao(sql2o);
         playerDao = new Sql2oPlayerDao(sql2o);
@@ -73,6 +76,10 @@ public class App {
 
             Player returnPlayer = playerDao.findById(playerId);
 
+            if(returnPlayer == null){
+                throw new ApiException(404, String.format("No player with the id: \"%s\" exists", request.params("id")));
+            }
+
             return gson.toJson(returnPlayer);
         });
 
@@ -80,6 +87,10 @@ public class App {
             int gameId = Integer.parseInt(request.params("id"));
 
             Game returnGame = gameDao.findById(gameId);
+
+            if(returnGame == null){
+                throw new ApiException(404, String.format("No game with the id: \"%s\" exists", request.params("id")));
+            }
 
             return gson.toJson(returnGame);
         });
@@ -131,6 +142,22 @@ public class App {
             gameDao.deleteById(gameId);
 
             return gson.toJson(gameDao.getAll());
+        });
+
+        //Filters
+        after((req, res) ->{
+            res.type("application/json");
+        });
+
+        //Exception Handling
+        exception(ApiException.class, (exc, req, res) -> {
+            ApiException err = (ApiException) exc;
+            Map<String, Object> jsonMap = new HashMap<>();
+            jsonMap.put("status", err.getStatusCode());
+            jsonMap.put("errorMessage", err.getMessage());
+            res.type("application/json"); //after does not run in case of an exception.
+            res.status(err.getStatusCode()); //set the status
+            res.body(gson.toJson(jsonMap));  //set the output.
         });
     }
 }
