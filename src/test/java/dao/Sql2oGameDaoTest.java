@@ -47,13 +47,15 @@ public class Sql2oGameDaoTest {
     @Test
     public void getAllPlayersForAGame_returnsNoPlayersWhenEmpty() throws Exception {
         Game testGame = createGame();
+        gameDao.add(testGame);
         assertEquals(0, gameDao.getAllPlayersForAGame(testGame.getId()).size());
     }
 
     @Test
     public void getAllPlayersForAGame_returnsAllPlayers() throws Exception {
         Game testGame = createGame();
-        assertNotEquals(0, gameDao.getAllPlayersForAGame(testGame.getId()).size());
+        gameDao.add(testGame);
+        assertNotEquals(1, gameDao.getAllPlayersForAGame(testGame.getId()).size());
     }
 
     @Test
