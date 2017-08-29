@@ -1,0 +1,37 @@
+//Games
+
+{
+        "gameDate": String,
+        "opposingTeam": String,
+        "location": String,
+        "played": boolean,
+        "leafsScore": int,
+        "opponentScore": int,
+}
+
+//Example
+{
+        "gameDate": "07/03",
+        "opposingTeam": "Oilers",
+        "location": "Edmonton",
+        "played": true,
+        "leafsScore": 3,
+        "opponentScore": 2,
+}
+
+//Players
+
+{
+	"firstName": String,
+	"lastName": String,
+	"playerNumber": int,
+	"handed": String
+}
+
+//Example
+{
+	"firstName": "Danny",
+	"lastName": "Duster",
+	"playerNumber": 01,
+	"handed": "Left"
+}
